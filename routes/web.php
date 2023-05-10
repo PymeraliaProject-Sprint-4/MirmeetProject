@@ -11,7 +11,6 @@ use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LoginSocialiteController;
-use App\Http\Controllers\MessageController2;
 use App\Models\Publication;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -227,17 +226,10 @@ Route::get('/home', function() {
 // Aquestes rutes retornen els posts a mostrar al mur discover i a la home
 Route::get('/posts-my', [PublicationController::class, 'myWall'])->name('postsMyWall');
 Route::get('/posts-home', [PublicationController::class, 'postsHome'])->name('recoverPostsHome');
-Route::post('/home/{publication}/comments', [PublicationController::class, 'storeComment'])->middleware(['auth', 'verified'])->name('recoverPostsHome');
-
-
 Route::get('/posts-discover', [PublicationController::class, 'postsDiscover'])->name('recoverPostsDiscover');
-Route::post('/discover/{publication}/comments', [PublicationController::class, 'storeComment'])->middleware(['auth', 'verified'])->name('recoverPostsDiscover');
-Route::get('/discover/{publication}/comments', [PublicationController::class, 'showComments'])
-    ->middleware(['auth', 'verified'])
-    ->name('recoverPostsDiscover');
-// Apartat comentaris
-// Route::post('/messages/{id}/comments', 'MessageController@storeComment')->name('messages.comments.store');
-// Route::delete('/messages/{id}/comments/{comment_id}', 'MessageController@destroyComment')->name('messages.comments.destroy');
-// Route::get('/messages/{id}/comments', 'MessageController@getComments')->name('messages.comments.get');
+//Apartat comentaris
+Route::post('/messages/{id}/comments', 'MessageController@storeComment')->name('messages.comments.store');
+Route::delete('/messages/{id}/comments/{comment_id}', 'MessageController@destroyComment')->name('messages.comments.destroy');
+Route::get('/messages/{id}/comments', 'MessageController@getComments')->name('messages.comments.get');
 
 require __DIR__.'/auth.php';
