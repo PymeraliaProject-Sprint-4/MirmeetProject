@@ -10,6 +10,7 @@ import { i18nVue } from 'laravel-vue-i18n'; //Importacion de vue-i18n con Larave
 import ChatUser from '../vue/ChatUser.vue';
 import DiscoverWall from '../vue/DiscoverWall.vue';
 import prova from '../vue/api.vue';
+import PostView from '../vue/PostView.vue';
 
 // Vue.component('discover2', require('./components/Discover2.vue').default)
 import PostBtn1 from '../vue/Post1.vue';
@@ -39,6 +40,8 @@ app.component('home-wall', HomeWall)
 app.component('my-button', MyButton)
 
 app.component('welcome', titleComp)
+
+app.component('post-view', PostView)
 
 app.component('perfil', Perfil)
 app.component('my-wall', MyWall)
