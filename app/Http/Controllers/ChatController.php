@@ -123,7 +123,8 @@ class ChatController extends Controller
         Notification::create([
             'sentby_id' => Auth::id(),
             'sento_id' => $receiver,
-            'message_id' => $message->id
+            'message_id' => $message->id,
+            'publication_id' => 1,
             
         ]);
 
