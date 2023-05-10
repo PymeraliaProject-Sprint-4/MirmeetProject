@@ -15,7 +15,6 @@ class Message extends Model
         'text',
         'sentby_id',
         'sento_id',
-        'publication_id',
         'hidden',
     ];
 
@@ -28,10 +27,4 @@ class Message extends Model
     {
         return $this->belongsTo(User::class, 'sento_id');
     }
-
-    public function publication()
-    {
-        return $this->belongsTo(Publication::class);
-    }
 }
-
