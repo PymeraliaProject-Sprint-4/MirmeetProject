@@ -251,7 +251,6 @@ export default {
 
         .then(response => {
           this.followers = response.data;
-          this.getFollowers();
           console.log(this.followers);
         })
         .catch(error => {
@@ -265,7 +264,6 @@ export default {
 
         .then(response => {
           this.following = response.data;
-          this.getFollowing();
           console.log(this.following);
         })
         .catch(error => {
