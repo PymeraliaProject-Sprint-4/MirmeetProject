@@ -11,6 +11,8 @@
     "Deny" : "Deny",
     "Email" : "Email",
     "addComment": "Add a comment...",
+    "validation.email" : "The email is incorrect",
+    "auth.failed": "La contraseña es incorrecta",
     "Confirm": "Confirm",
     "Current-Password": "Current password",
     "Update-Password" : "Update password ",

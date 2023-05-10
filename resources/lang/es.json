@@ -12,6 +12,8 @@
     "Option" : "Opciones",
     "Client" : "Client",
     "addComment": "Añade  un comentario...",
+    "validation.email" : "El email es incorrecto",
+    "auth.failed": "The password is incorrecte",
     "Admin" : "Admin",
     "Moderator" : "Moderador",
     "Phone" : "Teléfono",
