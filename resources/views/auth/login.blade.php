@@ -48,7 +48,7 @@
                 <a tabindex="4"
                     class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     href="{{ route('register') }}">
-                    {{ __('Sign up for free') }}
+                    {{ __('Sign-Up') }}
                 </a>
             @endif
             <div class="flex items-center justify-end">
@@ -64,7 +64,7 @@
         <div class="mt-4">
             <hr>
             <br>
-            <p class="text-center text-gray-500">{{ __('Or enter with') }}</p>
+            <p class="text-center text-gray-500">{{ __('Message-Login') }}</p>
             <div class="flex justify-center mt-4">
                 <a tabindex="6" href="{{ route('login.google') }}"
                     class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">

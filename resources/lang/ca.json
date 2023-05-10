@@ -1,17 +1,25 @@
 {
+    "Message-Login" : "També pots accedir amb...",
+    "Sign-Up" : "Regitrat",
+    "Edit-User" : "Editar usuari",
     "Password" : "Contrasenya",
     "Profile" : "Perfil",
     "Remember-me" : "Recorda'm",
     "Manage-Users" : "Gestió d'usuaris",
+    "Role" : "Rol",
+    "Birthdate" : "Fecha de naixement",
     "Searcher" : "Cercador",
     "User-Registration" : "Registre d'usuari",
     "Search" : "Cerca",
+    "New-User" : "Nou usuari",
     "Allow" : "Permetre",
+    "addComment": "Afegeix un comentari...",
     "Options" : "Opcions",
     "Client" : "Client",
     "Admin" : "Admin",
     "Moderator" : "Moderator",
     "Current-Password" : "Actual contrasenya",
+    "Create-User": "Crear usuari",
     "Update-Password" : "Actualizar contrasenya",
     "New-Password" : "Nova contrasenya",
     "Confirm-Password" : "Confirmi la contrasenya",
@@ -50,6 +58,9 @@
     "password_confirmation" : "Confirma la contrasenya",
     "Register" : "Registrat",
     "Log-in" : "Iniciar sessió",
+    "validation.email" : "El email és incorrecte",    
+    "auth.failed": "La contrasenya és incorrecta",
+    "password.sent" : "S’ha enviat el correu",
     "Restore" : "Restaurar",
     "Home" : "Inici",
     "Dashboard" : "Tauler",
@@ -65,6 +76,5 @@
     "Email-Password-Reset-Link" : "Enllaç de restabliment de la contrasenya del correu electrònic",
     "Resend-Verification-Email" : "Reenviar correu electrònic de verificació",
     "Alert-SignUp" : "Gràcies per registrar-te! Abans de començar, podríeu verificar la vostra adreça de correu electrònic fent clic a l'enllaç que us acabem d'enviar per correu electrònic? Si no heu rebut el correu electrònic, us enviarem un altre amb molt de gust",
-    "Alert-Verify" : "S'ha enviat un enllaç de verificació nou a l'adreça electrònica que vau proporcionar durant el registre"
-    
+    "Alert-Verify" : "S'ha enviat un enllaç de verificació nou a l'adreça electrònica que vau proporcionar durant el registre"    
 }

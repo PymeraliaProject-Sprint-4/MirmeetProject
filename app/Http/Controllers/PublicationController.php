@@ -186,22 +186,30 @@ class PublicationController extends Controller
     {
         $user_id = Auth::user()->id;
 
+
         $data = DB::table('publications')
             ->join('users', 'publications.user_id', '=', 'users.id')
-            ->leftJoin('follows', 'follows.following_id', '=', 'publications.user_id')
-            ->select('users.id AS id_user', 'publications.id AS post_id', 'users.username', 'users.avatar AS profile', 'publications.ref_swarm', 'publications.created_at AS date')
+            ->leftJoin('follows', function($join) use ($user_id) {
+                $join->on('follows.following_id', '=', 'publications.user_id')
+                        ->where('follows.follower_id', '=', $user_id);
+            })
+            ->select(
+                'users.id AS id_user',
+                'publications.id AS post_id',
+                'users.username',
+                'users.avatar AS profile',
+                'publications.ref_swarm',
+                'publications.created_at AS date'
+            )
             ->whereNull('follows.follower_id')
-            ->orWhere('follows.follower_id', '<>', $user_id)
             ->where('publications.user_id', '<>', $user_id)
             ->orderBy('publications.created_at', 'desc')
             ->get();
         
+        
             $encriptionKey = '';
         
             foreach ($data as $references) {
-    
-                $fetxa = Carbon::createFromFormat('Y-m-d H:i:s', $references->date);
-                $fetxaFormatada = $fetxa->format('d-m-Y');
             
                 $arrayRef = array(
                     'reference' => $references->ref_swarm,
@@ -210,9 +218,43 @@ class PublicationController extends Controller
                 
                 $response = PublicationController::getFromSwarm($references->ref_swarm);
                 $posts[] = ['data' => $response, 'post'=>$references->post_id, 'id_user'=>$references->id_user, 'profile'=>$references->profile, 'user'=>$references->username, 'date'=>$references->date];
-            } 
-            return $posts;        
+            }
+            return $posts;       
     }
+
+    public function showViewPost($id)
+    {
+        return view('post_view');
+    }
+    
+    public function viewPost($id)
+    {
+        
+        $publication = Publication::where('publications.id', $id)
+        ->join('users', 'publications.user_id', '=', 'users.id')
+        ->select('users.id AS id_user', 'publications.id AS post_id', 'users.username', 'users.avatar AS profile', 'publications.ref_swarm', 'publications.created_at AS date')
+        ->firstOrFail();
+        
+        $response = (new PublicationController)->getFromSwarm($publication->ref_swarm);
+        $json = json_decode($response, true);
+
+
+        $image = $json['image'];
+        $text = $json['text'];
+        
+        $post = [
+            'post' => $publication->post_id,
+            'id_user' => $publication->id_user,
+            'profile' => $publication->profile,
+            'user' => $publication->username,
+            'date' => $publication->date,
+            'image' => $image,
+            'text' => $text
+        ];
+        return($post);
+    }
+
+
     
     public function myWall()
     {

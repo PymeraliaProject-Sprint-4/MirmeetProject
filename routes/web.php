@@ -180,6 +180,10 @@ Route::get('/discover', function() {
     return view('walls.discover_wall');
 })->middleware(['auth', 'verified'])->name('discover');
 
+Route::get('/post-view/{id}', [PublicationController::class, 'showViewPost'])->middleware(['auth', 'verified']);
+
+Route::get('/show-post/{id}', [PublicationController::class,  'viewPost'])->middleware(['auth', 'verified']);
+
 // Route::get('/api/posts/{follower_id}', [PublicationController::class, 'getPosts']);
 Route::get('/channels', [ChatController::class, 'get_channels'])->middleware(['auth', 'verified']);
 Route::get('/rooms/{to_id}', [ChatController::class, 'check_existing_room'])->middleware(['auth', 'verified']);
